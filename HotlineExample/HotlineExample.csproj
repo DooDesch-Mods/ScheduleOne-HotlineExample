@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    HotlineExample - a minimal mod demonstrating the Hotline framework's modder API. It uses the recommended
+    "copy-in source" integration: it compiles the single Hotline.cs shim directly into itself (linked below), so
+    there is NO extra DLL to ship and it is a zero-overhead no-op when Hotline is not installed. Registers a panel
+    with text, an action button, a toggle, an optional central hotkey and a log channel. Doubles as the public
+    example repo.
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>HotlineExample</RootNamespace>
+    <AssemblyName>HotlineExample</AssemblyName>
+    <Version>1.0.0</Version>
+    <NoWarn>$(NoWarn);MSB3277;MSB3245</NoWarn>
+    <WorkspaceLibPath Condition="'$(WorkspaceLibPath)' == ''">$(MSBuildThisFileDirectory)../Workspace/lib</WorkspaceLibPath>
+    <MelonLoaderPath>$(WorkspaceLibPath)/il2cpp/melonloader</MelonLoaderPath>
+  </PropertyGroup>
+
+  <!-- The copy-in shim: compile Hotline.Api's single source file directly into this mod (no extra DLL). -->
+  <ItemGroup>
+    <Compile Include="../Hotline.Api/Hotline.cs" Link="Hotline.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MelonLoader">
+      <HintPath>$(MelonLoaderPath)/MelonLoader.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
