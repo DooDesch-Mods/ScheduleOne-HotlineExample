@@ -1,6 +1,6 @@
 # Hotline Example - the modder API for Hotline
 
-> 🛟 **Need help or found a bug?** Get support at [support.doodesch.de](https://support.doodesch.de).
+> 🛟 **Need help or found a bug?** Get support at [support.doodesch.de/hotlineexample](https://support.doodesch.de/hotlineexample).
 
 A minimal example mod showing how to give your Schedule I mod a panel in the
 [Hotline](https://github.com/DooDesch-Mods/ScheduleOne-Hotline) overlay - a text readout, an action button, a
